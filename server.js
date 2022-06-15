@@ -23,6 +23,8 @@ app.get('/', function(req, res) {
 
     let chk_sum_address = Web3.utils.toChecksumAddress(address)
 
+    web3.eth.defaultAccount = chk_sum_address
+
     let def_account = web3.eth.defaultAccount
 
     web3.eth.getBalance(chk_sum_address, (err, wei) => { balance = web3.utils.fromWei(wei, 'ether')});
