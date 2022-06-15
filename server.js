@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 const Web3 = require('web3');
 const rpcURL = "https://mainnet.infura.io/v3/47d1365cc1d94d70b061dc255574a787";
 const rpcURL2 ='wss://mainnet.infura.io/ws/v3/47d1365cc1d94d70b061dc255574a787';
-const web3 = new Web3(rpcURL2);
+const web3 = new Web3(rpcURL);
 
 // index page 
 app.get('/', function(req, res) {
