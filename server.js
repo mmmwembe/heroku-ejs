@@ -30,7 +30,7 @@ app.get('/', function(req, res) {
 
     web3.eth.getBalance(chk_sum_address, (err, wei) => { balance = web3.utils.fromWei(wei, 'ether')});
     //web3.isConnected()
-    blocknumber = await web3.eth.getBlockNumber()
+    // blocknumber = await web3.eth.getBlockNumber()
     // balance = getBalance()
 
     var mascots = [
