@@ -31,11 +31,12 @@ app.get('/', function(req, res) {
     web3.eth.getBalance(chk_sum_address, (err, wei) => { balance = web3.utils.fromWei(wei, 'ether')});
     //web3.isConnected()
 
-    try { 
-        blocknumber = await web3.eth.getBlockNumber() 
-      } catch (err) {
-        var msg = 'nothing happened mate!' 
-      }
+    web3.eth.getBlockNumber(function (error, result) {
+        if(!error) {
+             blocknumber = result;
+        }
+      })
+
     // 
     // balance = getBalance()
 
