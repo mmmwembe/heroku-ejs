@@ -23,13 +23,15 @@ app.get('/', function(req, res) {
 
     let chk_sum_address = Web3.utils.toChecksumAddress(address)
 
+    let def_account = web3.eth.defaultAccount
+
     web3.eth.getBalance(chk_sum_address, (err, wei) => { balance = web3.utils.fromWei(wei, 'ether')});
     //web3.isConnected()
 
     // balance = getBalance()
 
     var mascots = [
-        { name: 'Mainnet Ethereum Blance', organization: result, birth_year: balance},
+        { name: 'Mainnet Ethereum Blance', organization: result, birth_year: def_account},
         { name: 'Tux', organization: "Linux", birth_year: 1996},
         { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
     ];
