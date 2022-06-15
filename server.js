@@ -17,17 +17,19 @@ var balance = ''
 // index page 
 app.get('/', function(req, res) {
 
-    const address = "0x105cb19ba40384a8f2985816DA7883b076969cA7";
-    web3.eth.getBalance(address, (err, wei) => { balance = web3.utils.fromWei(wei, 'ether')});
+    const address = "0x105cb19ba40384a8f2985816DA7883b076969cA7"
 
     let result = Web3.utils.isAddress(address)
 
+    let chk_sum_address = Web3.utils.toChecksumAddress(address)
+
+    web3.eth.getBalance(chk_sum_address, (err, wei) => { balance = web3.utils.fromWei(wei, 'ether')});
     //web3.isConnected()
 
     // balance = getBalance()
 
     var mascots = [
-        { name: 'Mainnet Ethereum Blance', organization: result, birth_year: 2012},
+        { name: 'Mainnet Ethereum Blance', organization: result, birth_year: balance},
         { name: 'Tux', organization: "Linux", birth_year: 1996},
         { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
     ];
