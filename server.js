@@ -14,6 +14,7 @@ const rpcURL2 ='wss://mainnet.infura.io/ws/v3/47d1365cc1d94d70b061dc255574a787';
 const web3 = new Web3(rpcURL);
 
 var balance = '' 
+var blocknumber=''
 // index page 
 app.get('/', function(req, res) {
 
@@ -29,11 +30,11 @@ app.get('/', function(req, res) {
 
     web3.eth.getBalance(chk_sum_address, (err, wei) => { balance = web3.utils.fromWei(wei, 'ether')});
     //web3.isConnected()
-
+    blocknumber = await web3.eth.getBlockNumber()
     // balance = getBalance()
 
     var mascots = [
-        { name: 'Mainnet Ethereum Blance', organization: result, birth_year: def_account},
+        { name: 'Mainnet Ethereum Blance', organization: result, birth_year: blocknumber},
         { name: 'Tux', organization: "Linux", birth_year: 1996},
         { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
     ];
