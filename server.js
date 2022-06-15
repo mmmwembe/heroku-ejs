@@ -14,6 +14,19 @@ const rpcURL2 ='wss://mainnet.infura.io/ws/v3/47d1365cc1d94d70b061dc255574a787';
 // const web3 = new Web3(rpcURL);
 const web3 = new Web3.providers.HttpProvider(rpcURL)
 
+async function getBalance() {
+    var address, wei, balance
+    address = '0x105cb19ba40384a8f2985816DA7883b076969cA7';
+    wei = promisify(cb => web3.eth.getBalance(address, cb))
+    try {
+        balance = web3.fromWei(await wei, 'ether')
+        // document.getElementById("output").innerHTML = balance + " ETH";
+    } catch (error) {
+        // document.getElementById("output").innerHTML = error;
+        balance =''
+    }
+}
+
 // index page 
 app.get('/', function(req, res) {
 
@@ -23,8 +36,12 @@ app.get('/', function(req, res) {
       balance = web3.utils.fromWei(wei, 'ether')
     });
 
+    //web3.isConnected()
+
+    balance = getBalance()
+
     var mascots = [
-        { name: 'Mainnet Ethereum Blance', organization: web3.isConnected(), birth_year: 2012},
+        { name: 'Mainnet Ethereum Blance', organization: balance, birth_year: 2012},
         { name: 'Tux', organization: "Linux", birth_year: 1996},
         { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
     ];
