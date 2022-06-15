@@ -11,23 +11,9 @@ app.set('view engine', 'ejs');
 const Web3 = require('web3');
 const rpcURL = "https://mainnet.infura.io/v3/47d1365cc1d94d70b061dc255574a787";
 const rpcURL2 ='wss://mainnet.infura.io/ws/v3/47d1365cc1d94d70b061dc255574a787';
-// const web3 = new Web3(rpcURL);
-const web3 = new Web3.providers.HttpProvider(rpcURL)
+const web3 = new Web3(rpcURL);
+
 var balance = '' 
-
-async function getBalance() {
-    var address, wei, balance
-    address = '0x105cb19ba40384a8f2985816DA7883b076969cA7';
-    wei = promisify(cb => web3.eth.getBalance(address, cb))
-    try {
-        balance = web3.fromWei(await wei, 'ether')
-        // document.getElementById("output").innerHTML = balance + " ETH";
-    } catch (error) {
-        // document.getElementById("output").innerHTML = error;
-        balance =''
-    }
-}
-
 // index page 
 app.get('/', function(req, res) {
 
