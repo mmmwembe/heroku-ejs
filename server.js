@@ -11,13 +11,13 @@ app.set('view engine', 'ejs');
 const Web3 = require('web3');
 const rpcURL = "https://mainnet.infura.io/v3/47d1365cc1d94d70b061dc255574a787";
 const rpcURL2 ='wss://mainnet.infura.io/ws/v3/47d1365cc1d94d70b061dc255574a787';
-const web3 = new Web3(rpcURL);
+const web3 = new Web3(rpcURL2);
 
 // index page 
 app.get('/', function(req, res) {
 
     const address = "0x105cb19ba40384a8f2985816DA7883b076969cA7";
-    var balance = '' // Your account address goes here
+    var balance = '' 
     web3.eth.getBalance(address, (err, wei) => {
       balance = web3.utils.fromWei(wei, 'ether')
     });
