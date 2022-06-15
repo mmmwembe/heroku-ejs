@@ -23,7 +23,7 @@ app.get('/', function(req, res) {
     });
 
     var mascots = [
-        { name: 'Mainnet Ethereum Blance', organization: balance, birth_year: 2012},
+        { name: 'Mainnet Ethereum Blance', organization: web3.isConnected(), birth_year: 2012},
         { name: 'Tux', organization: "Linux", birth_year: 1996},
         { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
     ];
